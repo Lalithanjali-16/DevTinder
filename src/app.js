@@ -3,18 +3,17 @@ const express = require("express");
 const app =express();
 
 
-app.get("/user",(req,res) =>{
-    res.send({fN : "Anjali" , lN: "Robbi"})
+app.get("/user/:userId/:name/:sub",(req,res) =>{
+    console.log(req.params)
+    res.send("User")
 })
-app.post("/user" ,(req,res)=>{
-    res.send("Data saved successfully")
-})
-app.delete("/user" , (req,res) =>{
-    res.send("Data deleted successfully");
-})
-app.use("/test",(req,res)=>{
-    res.send("ntg")
-})
+
+// app.get("/xy?z", (req, res) => {
+//     console.log("Route /xy?z hit");
+//     res.send("playing using regex");
+// });
+
+
 app.use("/",(req,res)=>{
     res.send("Main")
 })
