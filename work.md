@@ -50,3 +50,4 @@
 
 - Installed Postman and used it for API testing
 - Tested get,post,delete API calls
+- Difference btn app.use and app.all
