@@ -55,6 +55,9 @@
 - Error handling
 - Create a free cluster on MongoDB official website
 - Install mongoose library
-- Connect your application to the Database "Connection url"
+- Connect your application to the Database "Connection url"/devTinder
 - Call the connectDB and connect to database
 - Create a user schema, user model
+- Create POST Signup API calls to add data to database
+- Push some documents using API calls from postman
+- Error handling using try , catch
