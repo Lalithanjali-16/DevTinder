@@ -53,3 +53,8 @@
 - Difference btn app.use and app.all
 - Middlewares
 - Error handling
+- Create a free cluster on MongoDB official website
+- Install mongoose library
+- Connect your application to the Database "Connection url"
+- Call the connectDB and connect to database
+- Create a user schema, user model
