@@ -72,12 +72,25 @@ app.delete("/user",async (req,res) =>{
 })
 
 //updating user in database
-app.patch("/user", async (req,res)=>{
+// app.patch("/user", async (req,res)=>{
+//     const data = req.body;
+//     const userId =  req.body.userId;
+//     try{
+//         const user = await User.findByIdAndUpdate({_id : userId}, data)
+//         res.send("User Updated successfully")
+//     }
+//     catch(err){
+//         res.status(404).send("Something went wrong" + err.message)
+//     }
+// })
+
+//updating user in database using email
+app.patch("/user",async (req,res)=>{
     const data = req.body;
-    const userId =  req.body.userId;
+    const email= req.body.emailId;
     try{
-        const user = await User.findByIdAndUpdate({_id : userId}, data)
-        res.send("User Updated successfully")
+        const user =await User.findOneAndUpdate({emailId : email} ,data)
+        res.send("User with email is updated successfully")
     }
     catch(err){
         res.status(404).send("Something went wrong" + err.message)
