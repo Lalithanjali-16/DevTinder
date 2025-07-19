@@ -46,7 +46,13 @@ const userSchema = new mongoose.Schema({
         maxlength: [300, "About section cannot exceed 300 characters"]
     },
     skills : {
-        type : [String]
+        type : [String],
+        validate: {
+            validator: function (arr) {
+                return arr.length <= 20;
+            },
+            message: "You can add up to 20 skills"
+            }
     }
 },{
     timestamps : true
