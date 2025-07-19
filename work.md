@@ -68,3 +68,4 @@
 - API - Feed API - GET/feed - get all the users from the database
 - Delete a user API
 - Update a user API
+- Validations for schema and added timestamps in schema

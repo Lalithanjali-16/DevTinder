@@ -89,16 +89,20 @@ app.patch("/user",async (req,res)=>{
     const data = req.body;
     const email= req.body.emailId;
     try{
-        const user =await User.findOneAndUpdate({emailId : email} ,data)
+        const user =await User.findOneAndUpdate({emailId : email} ,data,{runValidators :true})
+        if (!user) {
+            return res.status(404).send("No user found with this email");
+        }
         res.send("User with email is updated successfully")
     }
     catch(err){
-        res.status(404).send("Something went wrong" + err.message)
+        res.status(404).send("Update Failed" + err.message)
     }
 })
 
 //Connecting to database
-connectDB().then(()=>{
+connectDB().then(async ()=>{
+    await User.init();
     console.log("Database connection established")
     app.listen(3000 , ()=>{
     console.log("done")
