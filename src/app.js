@@ -32,6 +32,27 @@ app.post("/signup", async (req,res) =>{
     }
 })
 
+//login
+app.post("/login",async (req,res)=>{
+    try{
+        const {emailId,password}=req.body;
+        const user = await User.findOne({emailId:emailId})
+        if(!user){
+            throw new Error("Invalid credentials")
+        }
+        //to check email and password
+        const isPasswordValid = await bcrypt.compare(password,user.password)
+        if(isPasswordValid){
+            res.send("Login Successfully")
+        }else{
+            throw new Error("Invalid credentials");
+        }
+    }
+    catch(err){
+        res.status(404).send("Error logging in the user : "+ err.message)
+    }
+})
+
 //get user by id
 app.get("/user", async (req,res) => {
     const userEmail = req.body.emailId;
@@ -145,6 +166,7 @@ app.patch("/user", async (req, res) => {
 // })
 
 //Connecting to database
+
 connectDB().then(async ()=>{
     await User.init();
     console.log("Database connection established")

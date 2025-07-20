@@ -71,4 +71,5 @@
 - Validations for schema and added timestamps in schema
 - Data sanitization - Add API Validation for each field
 - Installed validator and explored validator functions
-- Encrypted Passwords
+- Validated user data in signup ,installed bcrypt package ,created password hash using bcrypt.hash and Encrypted Passwords
+- Created login API and compared passswords and throw errors when email or password is invalid
