@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken")
-const User = require("../models/user")
+const User = require("../models/user");
+const authRouter = require("../routes/auth");
 const userAuth = async (req,res,next)=>{
     try {
         // Read the token from the req cookies
@@ -23,4 +24,10 @@ const userAuth = async (req,res,next)=>{
         res.status(404).send("ERROR "+err.message);
     }
 };
+
+authRouter.post("/logout", async (req,res)=>{
+    res.cookie("token",null,
+        {expires:new Date(Date.now())});
+        res.send("Logout successful");
+})
 module.exports ={userAuth};
