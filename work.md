@@ -73,3 +73,8 @@
 - Installed validator and explored validator functions
 - Validated user data in signup ,installed bcrypt package ,created password hash using bcrypt.hash and Encrypted Passwords
 - Created login API and compared passswords and throw errors when email or password is invalid
+- install cokkie-parser, jsonwebtoken and import them
+- Create a cookie
+- In login API , Create a JWT token
+- Send token to cookie
+- Create profile page and send cookie to it and find out who is logged in 
