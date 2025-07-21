@@ -78,3 +78,4 @@
 - In login API , Create a JWT token
 - Send token to cookie
 - Create profile page and send cookie to it and find out who is logged in 
+- Used middleware for authentication
