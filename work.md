@@ -84,3 +84,5 @@
 - Group multiple routes under respective routers
 - Created authRouter, profileRouter, requestRouter
 - Imported thede routers in app.js
+- Created POST/logout
+- Created PATCH/profile/edit
