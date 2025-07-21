@@ -82,3 +82,5 @@
 - Set the expiry of JWT token and cookies to 7 days
 - Create User schema method for JWT and password validation
 - Group multiple routes under respective routers
+- Created authRouter, profileRouter, requestRouter
+- Imported thede routers in app.js
