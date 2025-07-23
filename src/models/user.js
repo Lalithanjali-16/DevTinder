@@ -42,11 +42,15 @@ const userSchema = new mongoose.Schema({
     },
     gender : {
         type : String,
-        validate(value){
-            if(!["male",'M',"Male","MALE","FEMALE","OTHER","Female","F","Other"].includes(value)){
-                throw new Error ("Gender data is not valid")
-            }
-        }
+        enum : {
+            values : ["male",'M',"Male","MALE","FEMALE","OTHER","Female","F","Other"],
+            message : `{VALUE} is not a valid gender type`
+        },
+        // validate(value){
+        //     if(!["male",'M',"Male","MALE","FEMALE","OTHER","Female","F","Other"].includes(value)){
+        //         throw new Error ("Gender data is not valid")
+        //     }
+        // }
     },
     photoUrl: {
         type: String,
@@ -70,7 +74,9 @@ const userSchema = new mongoose.Schema({
             },
             message: "You can add up to 20 skills"
             }
-    }
+    },
+    resetPasswordToken: { type :  String},
+    resetPasswordExpires: {type : Date},
 },{
     timestamps : true
 });

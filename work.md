@@ -86,3 +86,4 @@
 - Imported thede routers in app.js
 - Created POST/logout
 - Created PATCH/profile/edit
+- Created connection request
