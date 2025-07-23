@@ -86,4 +86,12 @@
 - Imported thede routers in app.js
 - Created POST/logout
 - Created PATCH/profile/edit
-- Created connection request
+- Created connection request schema
+- Added proper validation,handled  many corner cases
+- $or query
+- schema.pre("save")
+
+- Read more about indexes
+- Why do we need index in DB
+- What is the advantages and disadvantages of creating index
+- Why we shouldn't create more indexes

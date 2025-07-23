@@ -40,12 +40,11 @@ requestRouter.post("/request/send/:status/:toUserId", userAuth,async(req,res)=>{
         })
         const data = await connectionRequest.save()
         res.json({
-            message : "Connection Request Sent successful",
+            message : req.user.firstName + " is " + status + " in " + req.user.lastName,
             data,
         })
     }catch(err){
-        console.error("Connection request error:", err.message);
-        res.status(404).send("Connection Request failed "+ err.message)
+        res.status(404).send("Connection Request failed :  "+ err.message)
     }
 })
 module.exports = requestRouter;
