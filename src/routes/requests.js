@@ -14,7 +14,18 @@ requestRouter.post("/request/send/:status/:toUserId", userAuth,async(req,res)=>{
         if(!allowedSatus.includes(status)){
             return res.status(400).json({message : "Invalid status : "+status})
         }
+        //if there is an existing connectionRequest
+        const existingConnectionRequest = await ConnectionRequest.findOne({
+            $or : [
+                {fromUserId, toUserId},
+                {fromUserId : toUserId, toUserId : fromUserId}
+            ]
+            
+        })
 
+        if(existingConnectionRequest){
+            return res.status(400).send("Connection request already sent")
+        }
         const connectionRequest = new ConnectionRequest({
             fromUserId,toUserId,status
         })
