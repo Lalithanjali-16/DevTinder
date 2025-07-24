@@ -91,7 +91,10 @@
 - $or query
 - schema.pre("save")
 
-- Read more about indexes
-- Why do we need index in DB
-- What is the advantages and disadvantages of creating index
-- Why we shouldn't create more indexes
+- ⭐Read more about indexes
+- ⭐⭐Why do we need index in DB
+- ⭐⭐What is the advantages and disadvantages of creating index
+- ⭐⭐Why we shouldn't create more indexes
+
+
+- Wrote code for /request/review/:status/:requestId
