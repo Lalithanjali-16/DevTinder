@@ -96,5 +96,7 @@
 - ⭐⭐What is the advantages and disadvantages of creating index
 - ⭐⭐Why we shouldn't create more indexes
 
-
 - Wrote code for /request/review/:status/:requestId
+
+- Built GET /feed API
+- Explore $nin , $and , $ne and other queries

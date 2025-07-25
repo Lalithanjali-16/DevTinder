@@ -39,8 +39,9 @@ requestRouter.post("/request/send/:status/:toUserId", userAuth,async(req,res)=>{
             fromUserId,toUserId,status
         })
         const data = await connectionRequest.save()
+
         res.json({
-            message : req.user.firstName + " is " + status + " in " + req.user.lastName,
+            message : req.user.firstName + " is " + status + " in " + toUser.firstName ,
             data,
         })
     }catch(err){
@@ -55,7 +56,7 @@ requestRouter.post("/request/review/:status/:requestId" , userAuth , async(req,r
 
         const allowedStatus = ["accepted" , "rejected"]
         if(!allowedStatus.includes(status)){
-            return req.status(400).json({message : "Status not allowed" })
+            return res.status(400).json({message : "Status not allowed" })
         }
         const connectionRequest = await ConnectionRequest.findOne({
             _id : requestId,
@@ -63,7 +64,7 @@ requestRouter.post("/request/review/:status/:requestId" , userAuth , async(req,r
             status : "interested"
         });
         if(!connectionRequest){
-           return  res.status(400).json({message : "Connection request not found"});
+           return  res.status(404).json({message : "Connection request not found"});
 
         }
         connectionRequest.status=status;
